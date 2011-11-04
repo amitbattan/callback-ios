@@ -13,6 +13,8 @@ Device = function()
     this.name     = null;
     this.phonegap      = null;
     this.uuid     = null;
+    this.camera     = null;
+
     try 
 	{      
 		this.platform = DeviceInfo.platform;
@@ -20,7 +22,7 @@ Device = function()
 		this.name     = DeviceInfo.name;
 		this.phonegap = DeviceInfo.gap;
 		this.uuid     = DeviceInfo.uuid;
-
+		this.camera   = DeviceInfo.camera;
     } 
 	catch(e) 
 	{
