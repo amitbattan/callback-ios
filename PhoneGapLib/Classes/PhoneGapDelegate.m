@@ -497,6 +497,14 @@ BOOL gSplashScreenShown = NO;
     [devProps setObject:[device uniqueIdentifier] forKey:@"uuid"];
     [devProps setObject:[device name] forKey:@"name"];
     [devProps setObject:[[self class] phoneGapVersion ] forKey:@"gap"];
+    //this code added for detect the device Camera
+    if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera] ) {
+        [devProps setValue:[NSNumber numberWithBool:true] forKey:@"camera"];
+    } else{
+        [devProps setValue:[NSNumber numberWithBool:false] forKey:@"camera"];
+    }
+    //End Cemera Detection
+
     
     id cmd = [self getCommandInstance:@"com.phonegap.connection"];
     if (cmd && [cmd isKindOfClass:[PGConnection class]]) 
